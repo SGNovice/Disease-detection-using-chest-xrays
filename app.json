@@ -1,0 +1,5 @@
+{
+    "name":"X-Ray Eye",
+    "description":"Disease detection with chest x-ray",
+    "keywords":["python","flask","Pytorch"]
+}

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Novice-AI">
+    <title>X-Rays Condition Detection</title>
+    <!--External CSS-->
+	<link rel="stylesheet" type="text/css" href="/static/styles/style.css">
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+            function checkFileDetails() {
+	    //console.log("in function");
+        var fi = document.getElementById('file');
+        if (fi.files.length > 0) { 
+            //validation lol script
+            for (var i = 0; i <= fi.files.length - 1; i++) {
+                var fileName, fileExtension, fileSize, fileType, dateModified;
+                fileName = fi.files.item(i).name;
+                fileExtension = fileName.replace(/^.*\./, '');
+                if (fileExtension == 'jpg' || fileExtension == 'jpeg'||fileExtension == 'JPG') {
+                   readImageFile(fi.files.item(i));          
+                }
+                else {         
+                    fileSize = fi.files.item(i).size;  
+                    fileType = fi.files.item(i).type; 
+                    dateModified = fi.files.item(i).lastModifiedDate; 
+
+                    document.getElementById('fileInfo').innerHTML =
+                    document.getElementById('fileInfo').innerHTML + '<div class="alert alert-danger" role="alert" id="warn">'+
+                            'Only Image files are allowed. Kindly provide images with .jpg and .jpeg extension'+'</div>';
+                    document.getElementById('plug').disabled=true;
+                }
+            }
+
+            function readImageFile(file) {
+                var reader = new FileReader(); 
+
+                reader.onload = function (e) {
+                    var img = new Image();      
+                    img.src = e.target.result;
+
+                    img.onload = function () {
+                        var w = this.width;
+                        var h = this.height;
+                        if(w<255||h<255){
+                        document.getElementById('fileInfo').innerHTML =
+                            document.getElementById('fileInfo').innerHTML + '<div class="alert alert-danger" role="alert" id="warn">' +
+                                'Provided image is not suitable for processing, Please provide an image greater than width and height 255,255'+'</div>'+'</br>';
+                                document.getElementById('plug').disabled=true;
+                        }
+                        else{
+						//console.log("else triggered");
+                                    document.getElementById("plug").disabled = false;
+				    var element = document.getElementById("warn");
+                                    element.parentNode.removeChild(element);
+                        }
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+</script>
+  </head>
+  <body class="d-flex flex-column h-100" style="
+    background-image: url('/static/styles/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+">
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark" style="margin-bottom: 5%;">
+	  <!-- Brand -->
+	  <a class="navbar-brand" href="#">X-Rays Condition Detection</a>
+
+	  <!-- Toggler/collapsibe Button -->
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <!-- Navbar links -->
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" href="https://github.com/SGNovice">GitHub</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Information</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Contributors</a>
+		  </li> 
+		</ul>
+	  </div> 
+	</nav>
+  
+    <!-- Begin page content -->
+	<main role="main" class="flex-shrink-0">
+	  <div class="container" id="era" style="padding: 0 10% 5% 10%;background: #6962624d;box-shadow: 0px 3px 13px darkgrey;">
+		<h1 class="mt-5">Upload an X-Ray</h1>
+		
+		<form method="POST" enctype="multipart/form-data" >
+
+			<div class="custom-file">
+				<input type="file" class="custom-file-input" id="file" required name="file" onchange="checkFileDetails()" >
+				<label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+				<div id="fileInfo"></div>
+			</div>				
+			<div class="col text-center">
+				<input class="btn btn-primary btn-lg" id="plug" type="submit" name="upload" style="margin:5%;" disabled="false">
+			</div>
+		</form>
+
+	  </div>
+	</main>
+
+	<footer class="footer mt-auto py-3">
+	  <div class="container">
+		<span>@Made with PyTorch and Love. &copy; Novice-AI </span>
+	  </div>
+	</footer>
+</body>
+</html>
+
+</div>

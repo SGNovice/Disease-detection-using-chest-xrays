@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Novice-AI">
+    <title>X-Rays Condition Detection</title>
+    <!--External CSS-->
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='styles/style.css')}}">
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script>
+     function relocate_home()
+     {
+     location.href = "/";
+     } 
+</script>
+
+  </head>
+  <body class="d-flex flex-column h-100" style="
+    background-image: url('/static/styles/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+">
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark" style="margin-bottom: 5%;">
+	  <!-- Brand -->
+	  <a class="navbar-brand" href="#">X-Rays Condition Detection</a>
+
+	  <!-- Toggler/collapsibe Button -->
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+		<span class="navbar-toggler-icon"></span>
+	  </button>
+
+	  <!-- Navbar links -->
+	  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+		<ul class="navbar-nav">
+		  <li class="nav-item">
+			<a class="nav-link" href="github.com">GitHub</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Information</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" href="#">Contributors</a>
+		  </li> 
+		</ul>
+	  </div> 
+	</nav>
+  
+    <!-- Begin page content -->
+	<main role="main" class="flex-shrink-0">
+	  <div class="container" id="era" style="padding: 0 10% 5% 10%;background: #6962624d;box-shadow: 0px 3px 13px darkgrey;">
+		<h1 class="mt-5">Result</h1>
+		<div class="col text-center" style="padding: 3%;">
+		<p2>{{ dis }}</p2>
+        </div>		
+			<div class="col text-center">
+				<input type="button" class="btn btn-info" value="Try Again" onclick="relocate_home()">
+			</div>
+		</form>
+
+	  </div>
+	</main>
+
+	<footer class="footer mt-auto py-3">
+	  <div class="container">
+		<span>@Made with PyTorch and Love. &copy; Novice-AI </span>
+	  </div>
+	</footer>
+</body>
+</html>
+
+</div>
