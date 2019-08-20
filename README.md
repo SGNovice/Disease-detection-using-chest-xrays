@@ -155,7 +155,7 @@ _**So based on the above results, the most accurate model is *AURORA* which use 
 ## Discussion
 We ran into significant difficulties in our attempt to find a working approach towards processing the Chest X-Ray dataset and training a successful deep learning model. While many factors can be taken into account for this complication, the root cause can be traced back to the original dataset itself, which contains many imperfections and deficiencies that posed numerous challenges for the Data Acquisition, Pre-processing and Modelling teams alike. 
 
-All of those shall be explored and clarified in-depth for our readers in this section and state the limitation in the next section.
+All of those shall be explored and clarified in-depth for our readers in this section, and the limitations we came across will be covered in the next section.
 * **Chest X-Ray dataset is extremely imbalanced when it comes to the distribution of the number of instances for each class** 
 _For example,_ there is a huge disparity between the number of the top class – No Finding with more than 60,000 instances and the bottom one – Hernia with mere 110 instances. 
         This created a difficult situation for us where we had to make a decision on how we should further process and transform our data before feeding to the model.
