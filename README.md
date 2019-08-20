@@ -74,7 +74,7 @@ The distribution for Version 4.2 finally settled at:
 * (PA) Effusion - 1500
 
 ### Preprocessing
-Given that our dataset covered medical conditions which manifestations could be present at edges of X-ray images, we exercised caution with our transformations. After several deliberations and clinical considerations, we resorted to avoiding cropping and extreme random rotations and kept to these:
+Given that our dataset covered medical conditions, the manifestations of which could be present at edges of X-ray images, we exercised caution with our transformations. After several deliberations and clinical considerations, we resorted to avoiding cropping and extreme random rotations and kept to these:
 * Random Rotation: within the angle range -10 to 10, with expansion enabled
 * Resize: to a size of 224 by 224 to match our densenet model input size
 * Random Horizontal Flip
