@@ -1,7 +1,8 @@
 # Disease detection Project using Chest X-ray Database
 This project utilizes a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontal view X-ray images of 32,717 unique patients with the text mined 14 disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
+
 ## Abstract
-Chest X-Rays are the most reliable radiobiological imprints of patients, widely used to efficiently diagnose an array of common thoracic diseases. For too long, vast accumulations of image data and their associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and medical institutions. In the meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases just like these, at the cusp of fulfilling the promise of fully-automated and accurate disease diagnosis. Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, with powerful Deep Learning Systems, to automate the diagnosis of 14 common kinds of lung diseases. Currently, we will be focusing on three kinds of diseases to start with. 
+Chest X-Rays are the most reliable radiobiological imprints of patients, widely used to efficiently diagnose an array of common thoracic diseases. For too long, vast accumulations of image data and their associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and medical institutions. In the meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases just like these, at the cusp of fulfilling the promise of fully-automated and accurate disease diagnosis. Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, with powerful Deep Learning Systems, to automate the diagnosis of 14 common kinds of lung diseases. For this project, and in addition to healthy x-rays, we selected three conditions to start with - Cardiomegaly, Effusion, Emphysema - after rounds of exploration. 
 
 ## Introduction 
 Deep learning, also known as hierarchical learning or deep structured learning, is a type of machine learning that uses a layered algorithmic architecture to analyze data. Unlike other types of machine learning, deep learning has the added benefit of being able to decisions with significantly less involvement from human trainers. While basic machine learning requires a programmer to identify whether a conclusion is correct or not, deep learning can gauge the accuracy of its answers on its own due to the nature of its multi-layered structure. The emergence of modern frameworks like PyTorch, has also made preprocessing of data more convenient. Many of the filtering and normalization tasks that would have been completed manually by human programmers when using other machine learning techniques, are taken up automatically.
@@ -39,7 +40,7 @@ Finally, our team model allowed us to use initial cycles as an exploration to in
 
 ### Sampling
 
-The dataset was highly imbalanced, a high value in the distribution of 60361 and low of 110, and huge in size for our timeline and we had to resort it to using a well-represented sample. We eventually scaled down on the dataset to [12000] from [112000]. 
+The dataset was highly imbalanced, a high value in the distribution of 60361 and low of 110, and huge in size for our timeline and we had to resort it to using a well-represented sample. We initially scaled down from 112000+ images to 11000+, and then eventually 8186. 
 
 Sample images from the original dataset are as below:
 ![Original](images/original.png)
@@ -153,14 +154,8 @@ ResNeXt is a simple, highly modularized network architecture for image classific
 ![resnext](images/resnext-50.png)
 
 ### Encryption of model and dataset
-Healthcare data is particularly sensitive and if we face the risk of exposing sensitive patient data. For ensuring security and privacy of the dataset, we have implemented encrypted learning. To ensure encryption of model is done on demand and portability of classes we have implemented this in the below manner.
-* We encrypt patient data before it reaches our model. 
-* We make the model available as a service, and we protect our intellectual rights, as regards the gradients and model parameters.
-
-Below are the configurations to achieve the above two cases
-* Name Of Class: ModelEncryptor
-* Attributes: shares(shareholders), model(encrypted model)
-* Methods: encrypt_data(encrypts image data to be classified), predict(classifies the image)
+Healthcare data is particularly sensitive and if we face the risk of exposing sensitive patient data. For ensuring security and privacy of the dataset, we implemented a class which would allow encryption of model and data on-demand using websockets and the PySyft library. 
+A link to the our implementation is provided in the appendix of this document.
 
 ## Results
 With varied approaches for data sampling, activation function selection and hyperparameter tuning, we trained and tested six models, codenamed Aurora, Ava, Auden, Venus, Armadillo, and Atlas. Our results are given below in descending order of model performance.
@@ -238,23 +233,25 @@ After consulting with the subject matter expert Olivia in our team, we found tha
 Although the authors have gone the extra mile to mitigate the risk of wrong labeling by crafting a variety of custom rules and then applying them in the pre-processing step, the problem of defective labels was not entirely eliminated. Specifically, we can refer to “Table 2. Evaluation of image labeling results on OpenI dataset.” on page 4 of the paper for a detailed assessment on this phenomenon. The vast majority of classes exhibit varying degrees of being mislabeled, from Effusion with 0.93 precision rate to Infiltration with a modest score of 0.74. As a consequence, this has considerably limited our model’s ability to train on the dataset and later classify disease labels with great accuracy, given that the data was not without flaw, right from the beginning.
 
 ## Limitations
-Few Limitations that we found while working on this project one of them explained in above discussions:
-* Negative impact on the accuracy of our model due to the inclusion of both PA and AP pictures in each class.
-* For data augmentation, we need an alpha(Fluorescence) channel to avoid dismissal of key info which was creating difficulty of generalization. So we reduced to 3 classes and modified the dataset to prevent biases from occurring when being trained by the model.
-* Considering the picture quantities we have for cardiomegaly, we decided to still include both AP and PA pictures. This may lower the accuracy of our model.
+The following limitations are notable among others:
+* The position of the X-ray - AP versus PA - had an impact on the accuracy of our model. However, we didn't have enough of separate images belonging to AP and PA for each class and had to mix them. For example, we had to include AP and PA images for cardiomegaly, even in the version 4.2 dataset which was supposed to contain only PA images, and this may have reduced model accuracy.
+* We needed an alpha(transparency) channel to fully preserve manifestations of some conditions. However, we had to reduce the channels to 3, to take it easy on computation. Therefore we modified the dataset and this may have contirbuted to some inaccurate clasification.
+
 
 ## Conclusion
 Our project adds emphasis to the immense potential to be harnessed from the intersection of Deep Learning and Medical Diagnostics. The outcomes achieved within the short span of time were commendable. We also appreciated the technicalities of medical imaging, and more importantly, the challenges with automated diagnosis leveraging analysis of x-ray images by deep neural networks.
 Our goal is to build a full system that leverages federated learning and full blown secure and privacy preserving technologies, to make smart diagnosis accessible in the browser, on phones and tablets - the web interface is up and functional, while the mobile platforms are underway. We have also designed a roadmap which will allow us to improve the overall quality and accuracy of our system on available datasets for chest X-rays. Ultimately, we hope to build on this project for other diagnoses outside our current target of 14 lung conditions.
 
-## Recommendations
-The team would like to extend the project to institutions where aid to diagnosis is of utmost importance. 
-* Currently, the project is limited to the public domain dataset and to the best-effort analyses of health records via natural language processing. The idea here is to improve the current accuracy of the model by augmenting it with real-world datasets which are available from medical institutions. 
-* Due to the sensitive nature of these datasets and with intentions of privacy, naturally, these are currently being kept private. With the power of federated learning, we can adopt a strategy where medical institutions would not need to relent their private datasets to a central server, which might lead to privacy leakage. Instead, we open an interface for them to feed the data within the institution, train the model on-site and only transmit gradients and other model information to the central server which we have access and do model aggregation accordingly. 
-* Firstly, we coordinate with medical institutions to install Internet-enabled devices on-premise. For this, we think of Raspberry Pi 3 devices, small, lightweight and powerful enough to do the tasks we need for local training. We plan on creating a headless setup to each Raspberry Pi devices with web server connected on their local network. This web server can be accessed by representatives in-house to feed X-ray data and other relevant information pertinent to local training. We make sure that the data to be fed to locally matches the global requirements for model improvement. 
-* We can send the model definition to each Raspberry Pi’s installed remotely. We then orchestrate model updates on-demand using the power of PySyft’s secure model parameter aggregation, leveraging mathematical techniques per actor to encrypt model information so trusted aggregators cannot glean on raw gradients sent by federated nodes.
-Of course, there needs to be full coordination with hospitals, clinics and radiologic facilities who have quality datasets to join in our planned IoT-enabled space specifically for this use case. In return, we enable an intuitive interface to help doctors in diagnosis. 
-* For improving encrypted deep learning in this project, we would try to improve and tweak class where we can customize precision.
+## Future Work
+The team would like to extend the project to institutions where aid to diagnosis is of utmost importance.
+
+### Raspberry Pi Project
+Currently, the project is limited to the public domain dataset and to the best-effort analyses of health records via natural language processing. The idea here is to improve the current accuracy of the model by augmenting it with real-world datasets which are available from medical institutions. Due to the sensitive nature of these datasets and concerns for privacy, these are currently being kept private. With the power of federated learning, we can adopt a strategy where medical institutions would not need to relent their private datasets to a central server, which might lead to privacy leakage. Instead, we open an interface for them to feed the data within the institution, train the model on-site and only transmit gradients and other model information to the central server which we have access and do model aggregation accordingly. Firstly, we will coordinate with medical institutions to install Internet-enabled devices on-premise. For this, we think of Raspberry Pi 3 devices, small, lightweight and powerful enough to perform the local training needed. We plan on creating a headless setup to each Raspberry Pi device, with the web server connected to their local network. This web server can be accessed by representatives in-house to feed X-ray data and other relevant information pertinent to local training. We make sure that the data to be fed locally matches the global requirements for model improvement. We can send the model definition to each Raspberry Pi’s installed remotely. We then orchestrate model updates on-demand using the power of PySyft’s secure model parameter aggregation, leveraging mathematical techniques per actor to encrypt model information so trusted aggregators cannot glean on raw gradients sent by federated nodes. We will need the full cooperation of hospitals, clinics and radiologic facilities who have quality datasets to join  our planned IoT-enabled ecosystem for this use case. In return, we will enable an intuitive interface to help doctors in diagnosis.
+
+### Browser and mobile Access
+We already deployed the model to the web for demonstration, and our xray detection service is accessible at https://xrayeyes.onrender.com. We have also started work on the apps for android, iOS and the new ipadOS. Mocks of this is shown below:
+[Insert images for mocks]
+
 
 ## Appendix
 https://colab.research.google.com/drive/1nub56-UfvlovgWP7oSC5850HdNIbOFQu 
