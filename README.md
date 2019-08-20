@@ -1,7 +1,7 @@
 # Disease detection Project using Chest X-ray Database
-This project aims at a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontalview X-ray images of 32,717 unique patients with the textmined eight disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
+This project aims at a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontalview X-ray images of 32,717 unique patients with the textmined 14 disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
 ## Abstract
-Chest X-Rays are the most reliable radiobiological imprints of patients, widely used to efficiently diagnose an array of common thoracic diseases. For too long, vast accumulations of image data and their associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and medical institutions. In the meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases just like these, at the cusp of fulfilling the promise of fully-automated and accurate disease diagnosis. Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, with powerful Deep Learning Systems, in order to automate the diagnosis of eight common kinds of lung diseases. Currently we will be focusing on three kinds of diseases to start with. 
+Chest X-Rays are the most reliable radiobiological imprints of patients, widely used to efficiently diagnose an array of common thoracic diseases. For too long, vast accumulations of image data and their associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and medical institutions. In the meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases just like these, at the cusp of fulfilling the promise of fully-automated and accurate disease diagnosis. Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, with powerful Deep Learning Systems, in order to automate the diagnosis of 14 common kinds of lung diseases. Currently we will be focusing on three kinds of diseases to start with. 
 
 ## Introduction 
 ### Why Deep Learning for Disease Diagnostics?
@@ -100,6 +100,15 @@ If β=1.5, the function ranges from: ≈-0.451103 to ∞. For most benchmarks, �
 The mathematical function of Mila is shown as below:
 ![Mila](https://user-images.githubusercontent.com/37798451/63227901-4df66b80-c209-11e9-8e8b-1ab785410177.PNG)
 
+### Encryption of model and dataset
+Healthcare data is particularly sensitive and if we face the risk of exposing sensitive patient data.For ensuring security and privacy of the dataset, we have implemented encrypted learning. To ensure encryption of model is done on demand and portability of classes we have implemented this in below manner.
+* We encrypt patient data before it reaches our model. 
+* We make the model available as a service, and we protect our intellectual rights, as regards the gradients and model parameters.
+
+Below are the configurations to achieve above two cases
+* Name Of Class: ModelEncryptor
+* Attributes: shares(shareholders), model(encrypted model)
+* Methods: encrypt_data(encrypts image data to be classified), predict(classifies the image)
 
 ## Results
 ### Dataset 1: Mixed Dataset (PA and AP) using β-Mish activation function 
@@ -157,6 +166,7 @@ The team would like to extend the project to institutions where aid to diagnosis
 * Firstly, we coordinate with medical institutions to install Internet-enabled devices on-premise. For this, we think of Raspberry Pi 3 devices, small, lightweight and powerful enough to do the tasks we need for local training. We plan on creating headless setup to each Raspberry Pi devices with web server connected on their local network. This web server can be accessed by representatives in-house to feed X-ray data and other relevant information pertinent to local training. We make sure that the data to be fed to locally matches the global requirements for model improvement. 
 * We can send model definition to each Raspberry Pi’s installed remotely. We then orchestrate model updates on-demand using the power of PySyft’s secure model parameter aggregation, leveraging mathematical techniques per actor to encrypt model information so trusted aggregators cannot glean on raw gradients sent by federated nodes.
 Of course, there needs to be full coordination with hospitals, clinics and radiologic facilities who have quality datasets to join in our planned IoT-enabled space specifically for this use case. In return, we enable intuitive interface to help doctors in diagnosis. 
+* For improving encrypted deep learning in this project, we would try to improve and tweak class where we can customize precision.
 
 Due to the sensitive nature of these datasets and with intentions of privacy, naturally these are currently being kept private. 
 ## Appendix
