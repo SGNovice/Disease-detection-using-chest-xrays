@@ -117,20 +117,8 @@ Below are the configurations to achieve above two cases
 
 ## Results
 
-### *Approach 1:* AURORA: beta-mish, mila and densenet 161 --> 82.3%
-This approach is tested with two possibilities of the dataset as mentioned below. 
-#### Dataset 1: Mixed Dataset (PA and AP) using a β-Mish activation function 
-Test Loss: 0.541957
-
-Label | Accuracy
------------- | -------------
-Cardiomegaly | 83.000% (83/100)
-Effusion | 79.000% (79/100)
-No Finding | 76.000% (76/100)
-Overall | 79.3333% (238/300)
-
-### Dataset 2: PA only using Mila activation function
-Test Loss: 0.456018
+### *Model 1:* AURORA: beta-mish, mila and densenet 161 --> 82.3%
+We trained and tested densenet161 with beta-mish and mila activations, on classifying Cardiomegaly, Effusion, and No Finding, irrespective of X-ray position.
 
 Label | Accuracy
 ------------ | -------------
@@ -139,18 +127,34 @@ Effusion | 83.000% (83/100)
 No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
 
-Below graphs states the relation of test and training dataset for Loss and Accuracy
-![Loss](images/res2.png)  ![Accuracy](images/res3.png)
+### *Model 2:* AVA: beta-mish and densenet 161 --> 79.3%
+We trained and tested densenet161 with beta-mish and mila activations, on dataset of X-ray images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
 
-### *Approach 2:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
-In this approach, we have used resNext50 instead of densenet161 to test if it helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
+Label | Accuracy
+------------ | -------------
+Cardiomegaly | 83.000% (83/100)
+Effusion | 79.000% (79/100)
+No Finding | 76.000% (76/100)
+Overall | 79.3333% (238/300)
 
-### *Approach 3:* ARMADILLO:  densenet161, mila activation --> accuracy 61.932%
-Here, we have used the only Mila as an activation function to train the model along with densenet161. 
-#### Dataset 1: Mixed Dataset (PA and AP) using a β-Mish activation function
-Validation accuracy: 61.932
-Test Loss: 0.915
-Test Accuracy: 61.3
+### *Model 3:* AUDEN: densenet161, sqnl activation --> accuracy 75.59%
+We trained and tested densenet161 with sqnl activation, on classifying Emphesyma and No-Finding, irrespective of X-ray position.
+
+Label | Accuracy
+------------ | -------------
+Emphysema | 70% (70/100)
+No Finding | 80% (76/100)
+
+### *Model 4:* VENUS: resnet50, mila activation --> accuracy 68.54%%
+We trained and tested resnet50 with mila activation, on classifying Pneumothorax and No-Finding, irrespective of X-ray position.
+
+Label | Accuracy
+------------ | -------------
+Pneumothorax | 45% (45/100)
+No Finding | 92% (92/100)
+
+### *Model 5:* ARMADILLO:  densenet161, mila activation --> accuracy 61.932%
+We trained and tested densenet161 with mila activation on classifying Cardiomegaly, Effusion, and No-Finding, irrespective of X-ray position.
 
 Label | Accuracy
 ------------ | -------------
@@ -158,7 +162,10 @@ Cardiomegaly | 25%
 Effusion | 80%
 No Finding | 66%
 
-_**So based on the above results, the most accurate model is *AURORA* which use densenet161, beta-mish and Mila as its activation function helping us to achieve an accuracy of 82.3%.**_
+### *Model 6:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
+We trained and tested resNext50 with traditional ReLU and Softmax activations on classifying Cardiomegaly, Effusion, and No-Finding, irrespective of X-ray position.
+
+Evidently, our most accurate model was *AURORA*, achieving an accuracy of 82.3%, on PA images for Effusion and Healthy X-rays(No-finding), and AP+PA images for cardiomegaly.
 
 ## Discussion
 We ran into significant difficulties in our attempt to find a working approach towards processing the Chest X-Ray dataset and training a successful deep learning model. While many factors can be taken into account for this complication, the root cause can be traced back to the original dataset itself, which contains many imperfections and deficiencies that posed numerous challenges for the Data Acquisition, Pre-processing and Modelling teams alike. 
