@@ -134,7 +134,7 @@ No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
 
 ### *Approach 2:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
-In this approach, we have used resNext50 instead of densenet161 to test if helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
+In this approach, we have used resNext50 instead of densenet161 to test if it helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
 
 ### *Approach 3:* ARMADILLO:  densenet161, mila activation --> accuracy 61.932%
 Here, we have used the only Mila as an activation function to train the model along with densenet161. 
