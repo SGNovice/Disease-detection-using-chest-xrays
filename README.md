@@ -79,8 +79,7 @@ Given that our dataset covered medical conditions, the manifestations of which c
 * Resize: to a size of 224 by 224 to match our densenet model input size
 * Random Horizontal Flip
 * Random Vertical Flip
-* Conversion To Pytorch floatTensor type
-This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
+* Conversion To Pytorch floatTensor type: This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
 
 ### Modelling
 We had a run with densenet161, and resNext50 during our model staging to assess and compare performances, before finally settling with densenet161.
@@ -135,7 +134,7 @@ No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
 
 ### *Approach 2:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
-In this approach, we have used resNext50 instead of densenet161 to test if helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
+In this approach, we have used resNext50 instead of densenet161 to test if it helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
 
 ### *Approach 3:* ARMADILLO:  densenet161, mila activation --> accuracy 61.932%
 Here, we have used the only Mila as an activation function to train the model along with densenet161. 
