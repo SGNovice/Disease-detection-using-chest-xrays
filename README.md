@@ -27,7 +27,7 @@ Recent work has shown that convolutional networks can be substantially deeper, m
 
 Given our time constraint, we chose to divide ourselves into sub teams corresponding to the demarcated phases of this project. The benefits of this approach was a smooth iterative process - where we could have quick adjustments from previous phases to facilitate better outcomes for a subsequent phase - and speed due to parallel implementations at the various phases.
 We also adopted a scrum model, where the entire period was a sprint, and stand-up sessions within at most 2-day intervals served for progress update and team re-orientation where it was necessitated.
-Finally, our team model allowed us to use initial cycles as exploration to inform our final data, preprocessing and model strategies. With each cycle, we redefined our goals while maintaining the general objective of facilitating faster lung X-ray assessments.
+Finally, our team model allowed us to use initial cycles as exploration to inform our final data, preprocessing and model strategies. With each cycle, we redefined our goals while maintaining the general objective of facilitating faster lung X-ray assessments. 
 
 ![Stages for Project](https://user-images.githubusercontent.com/37798451/63227239-07e9d980-c202-11e9-8bfd-29c635a12956.png)
 
@@ -111,7 +111,10 @@ Below are the configurations to achieve above two cases
 * Methods: encrypt_data(encrypts image data to be classified), predict(classifies the image)
 
 ## Results
-### Dataset 1: Mixed Dataset (PA and AP) using β-Mish activation function 
+
+### *Approach 1:* AURORA: beta-mish, mila and densenet 161 --> 82.3%
+This approach is tested with two possibilities of dataset as mentioned below. 
+#### Dataset 1: Mixed Dataset (PA and AP) using β-Mish activation function 
 Test Loss: 0.541957
 
 Label | Accuracy
@@ -130,6 +133,24 @@ Cardiomegaly | 89.000% (89/100)
 Effusion | 83.000% (83/100)
 No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
+
+### *Approach 2:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
+In this approach, we have used resNext50 instead of densenet161 to test if helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
+
+### *Approach 3:* ARMADILLO:  densenet161, mila activation --> accuracy 61.932%
+Here, we have used only mila as a activation function to train the model along with densenet161. 
+#### Dataset 1: Mixed Dataset (PA and AP) using β-Mish activation function
+Validation accuracy: 61.932
+Test Loss: 0.915
+Test Accuracy: 61.3
+
+Label | Accuracy
+------------ | -------------
+Cardiomegaly | 25%
+Effusion | 80%
+No Finding | 66%
+
+_**So based on above results, the most accurate model is *AURORA* which use densenet161, beta-mish and mila as its activation function helping us to achieve an accuracy of 82.3%.**_
 
 ## Discussion
 We ran into significant difficulties in our attempt to find a working approach towards processing the Chest X-Ray dataset and training a successful deep learning model. While many factors can be taken into account for this complication, the root cause can be traced back to the original dataset itself, which contains many imperfections and deficiencies that posed numerous challenges for the Data Acquisition, Pre-processing and Modelling teams alike. 
@@ -170,6 +191,7 @@ Of course, there needs to be full coordination with hospitals, clinics and radio
 
 Due to the sensitive nature of these datasets and with intentions of privacy, naturally these are currently being kept private. 
 ## Appendix
+https://colab.research.google.com/drive/1nub56-UfvlovgWP7oSC5850HdNIbOFQu 
 
 ## Collaborators
 Members | Slack Handle
@@ -196,9 +218,12 @@ Rosa Paccotacya | @Rosa Paccotacya
 ## References
 https://arxiv.org/pdf/1705.02315.pdf
 http://openaccess.thecvf.com/content_cvpr_2017/papers/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.pdf
-https://colab.research.google.com/drive/1nub56-UfvlovgWP7oSC5850HdNIbOFQu
 https://www.kaggle.com/ingusterbets/nih-chest-x-rays-analysis
 https://github.com/digantamisra98/Mila
 https://github.com/digantamisra98/Beta-Mish
 https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/37178474737
 https://nihcc.app.box.com/v/ChestXray-NIHCC/file/219760887468
+https://link.springer.com/chapter/10.1007/978-3-540-75402-2_4
+https://openreview.net/pdf?id=rkBBChjiG
+https://arxiv.org/pdf/1711.05225
+
