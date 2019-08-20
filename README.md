@@ -1,5 +1,5 @@
 # Disease detection Project using Chest X-ray Database
-This project utilizes a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontal view X-ray images of 32,717 unique patients with the textmined 14 disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
+This project utilizes a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontal view X-ray images of 32,717 unique patients with the text mined 14 disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
 ## Abstract
 Chest X-Rays are the most reliable radiobiological imprints of patients, widely used to efficiently diagnose an array of common thoracic diseases. For too long, vast accumulations of image data and their associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and medical institutions. In the meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases just like these, at the cusp of fulfilling the promise of fully-automated and accurate disease diagnosis. Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, with powerful Deep Learning Systems, to automate the diagnosis of 14 common kinds of lung diseases. Currently, we will be focusing on three kinds of diseases to start with. 
 
@@ -20,7 +20,7 @@ All these reasons show that Speed and Accuracy are characteristic features of �
 
 So, the growing need for more qualified medical personnel worldwide is like an incomplete jigsaw puzzle.  Deep Learning systems have the potential to finish this puzzle once and for all.
 
-This is exactly why we feel that the quest to build such a system is truly relevant to the needs of society at present. There is no denying the fact that with an ever-growing global population, we are going to need alternative AI-based medical personnel to assist us in achieving the sustainable development goal of providing “**A**ffordable,**A**ccurate and **A**dequate Healthcare for All”. 
+This is exactly why we feel that the quest to build such a system is truly relevant to the needs of society at present. There is no denying the fact that with an ever-growing global population, we are going to need alternative AI-based medical personnel to assist us in achieving the sustainable development goal of providing “**A**ffordable, **A**ccurate and **A**dequate Healthcare for All”. 
 
 ## Methodology
 Recent work has shown that convolutional networks can be substantially deeper, more accurate, and efficient to train if they contain shorter connections between layers close to the input and those close to the output. In this paper, we embrace this observation and introduce the Dense Convolutional Network (DenseNet), which connects each layer to every other layer in a feed-forward fashion. Whereas traditional convolutional networks with L layers have L connections - one between each layer and its subsequent layer - our network has L(L+1)/2 direct connections. For each layer, the feature-maps of all preceding layers are used as inputs, and its own feature-maps are used as inputs into all subsequent layers. 
@@ -35,7 +35,7 @@ Finally, our team model allowed us to use initial cycles as an exploration to in
 
 The dataset was highly imbalanced, a high value in the distribution of 60361 and low of 110, and huge in size for our timeline and we had to resort it to using a well-represented sample. We eventually scaled down on the dataset to [12000] from [112000]. 
 
-Sample image for original dataset is as below
+Sample image from the original dataset is as below
 ![Original](images/original.png)
 
 The initial distribution for images with single class labels is given below.
@@ -84,10 +84,10 @@ Given that our dataset covered medical conditions, the manifestations of which c
 * Random Vertical Flip
 * Conversion To Pytorch floatTensor type: This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
 
-Sample image for transformed dataset is as below
+Sample image from the transformed dataset is as below
 ![Transformed](images/transformed.png)
 
-### Modelling
+### Modeling
 We had a run with densenet161, and resNext50 during our model staging to assess and compare performances, before finally settling with densenet161.
 The modeling stage was characterized by several iterative cycles that called for new sampling and processing strategies on demand. Notwithstanding, the team model facilitated swift responses so that we could re-orient quickly without disrupting overall progress.
 We also had the technical expertise that allowed us to try novel activation functions - namely mila, mish and beta mish – which we believe contributed greatly to our results, in addition to hyperparameter tunings.
@@ -100,7 +100,7 @@ For activation Functions, we are using β-Mish and Mila.
 If β=1.5, the function ranges from  ≈-0.451103 to ∞. For most benchmarks, β was set to be 1.5.
 ![Mish3](https://user-images.githubusercontent.com/37798451/63227815-569a7200-c208-11e9-9412-b802fe7bf20f.png)
 
-**Mila** is an uniparametric activation function inspired from the Mish Activation Function. The parameter β is used to control the concavity of the Global Minima of the Activation Function where β=0 is the baseline Mish Activation Function. Varying β in the negative scale reduces the concavity and vice versa. β is introduced to tackle gradient death scenarios due to the sharp global minima of Mish Activation Function.
+**Mila** is an uniparametric activation function inspired by the Mish Activation Function. The parameter β is used to control the concavity of the Global Minima of the Activation Function where β=0 is the baseline Mish Activation Function. Varying β in the negative scale reduces the concavity and vice versa. β is introduced to tackle gradient death scenarios due to the sharp global minima of Mish Activation Function.
 
 The mathematical function of Mila is shown as below:
 ![Mila](https://user-images.githubusercontent.com/37798451/63227901-4df66b80-c209-11e9-8e8b-1ab785410177.PNG)
@@ -110,7 +110,7 @@ Healthcare data is particularly sensitive and if we face the risk of exposing se
 * We encrypt patient data before it reaches our model. 
 * We make the model available as a service, and we protect our intellectual rights, as regards the gradients and model parameters.
 
-Below are the configurations to achieve above two cases
+Below are the configurations to achieve the above two cases
 * Name Of Class: ModelEncryptor
 * Attributes: shares(shareholders), model(encrypted model)
 * Methods: encrypt_data(encrypts image data to be classified), predict(classifies the image)
@@ -131,7 +131,7 @@ Here are the graphs representing  loss and accuracy for  test and training datas
 ![Loss](images/res2.png)   ![Accuracy](images/res3.png)
 
 ### *Model 2:* AVA: beta-mish and densenet 161 --> 79.3%
-We trained and tested densenet161 with beta-mish and mila activations, on dataset of X-ray images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
+We trained and tested densenet161 with beta-mish and mila activations, on the dataset of X-ray images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
 
 Label | Accuracy
 ------------ | -------------
@@ -177,7 +177,7 @@ All of those shall be explored and clarified in-depth for our readers in this se
 * **Chest X-Ray dataset is extremely imbalanced when it comes to the distribution of the number of instances for each class**: _For example,_ there is a huge disparity between the number of the top class – No Finding with more than 60,000 instances and the bottom one – Hernia with a mere 110 instances. 
         This created a difficult situation for us where we had to make a decision on how we should further process and transform our data before feeding to the model.
   
-* **X-ray images in our dataset were taken from two different positions: PA/posterior anterior and AP/anterior posterior**: This especially held true for “Effusion” class, with the number of images captured in each position almost equal. Since many of the diseases in our dataset were sensitive to such positions, we debated on whether we should split each class into two smaller ones: AP and PA or more ideally, only retain PA pictures. <br>
+* **X-ray images in our dataset were taken from two different positions: PA/posterior-anterior and AP/anterior-posterior**: This especially held true for “Effusion” class, with the number of images captured in each position almost equal. Since many of the diseases in our dataset were sensitive to such positions, we debated on whether we should split each class into two smaller ones: AP and PA or more ideally, only retain PA pictures. <br>
 The latter approach, nevertheless, had one major disadvantage: we need to take into account the number of pictures in the PA position, which in many cases, there were simply not enough of them. In the end, considering the limited number of PA images we had for “cardiomegaly”, we decided to include both PA and AP pictures in each class, and this would definitely have a negative impact on the accuracy of our model.
 
 * **How we should proceed with data augmentation**: 
@@ -198,10 +198,10 @@ Few Limitations that we found while working on this project one of them explaine
 ## Conclusion
 ## Recommendations
 The team would like to extend the project to institutions where aid to diagnosis is of utmost importance. 
-* Currently the project is limited to the public domain dataset and to the best-effort analyses of health records via natural language processing. The idea here is to improve the current accuracy of the model by augmenting it with real-world datasets which are available from medical institutions. 
-* Due to the sensitive nature of these datasets and with intentions of privacy, naturally these are currently being kept private. With the power of federated learning, we can adopt a strategy where medical institutions would not need to relent their private datasets to a central server, which might lead to privacy leakage. Instead, we open an interface for them to feed the data within the institution, train the model on-site and only transmit gradients and other model information to the central server which we have access and do model aggregation accordingly. 
+* Currently, the project is limited to the public domain dataset and to the best-effort analyses of health records via natural language processing. The idea here is to improve the current accuracy of the model by augmenting it with real-world datasets which are available from medical institutions. 
+* Due to the sensitive nature of these datasets and with intentions of privacy, naturally, these are currently being kept private. With the power of federated learning, we can adopt a strategy where medical institutions would not need to relent their private datasets to a central server, which might lead to privacy leakage. Instead, we open an interface for them to feed the data within the institution, train the model on-site and only transmit gradients and other model information to the central server which we have access and do model aggregation accordingly. 
 * Firstly, we coordinate with medical institutions to install Internet-enabled devices on-premise. For this, we think of Raspberry Pi 3 devices, small, lightweight and powerful enough to do the tasks we need for local training. We plan on creating a headless setup to each Raspberry Pi devices with web server connected on their local network. This web server can be accessed by representatives in-house to feed X-ray data and other relevant information pertinent to local training. We make sure that the data to be fed to locally matches the global requirements for model improvement. 
-* We can send model definition to each Raspberry Pi’s installed remotely. We then orchestrate model updates on-demand using the power of PySyft’s secure model parameter aggregation, leveraging mathematical techniques per actor to encrypt model information so trusted aggregators cannot glean on raw gradients sent by federated nodes.
+* We can send the model definition to each Raspberry Pi’s installed remotely. We then orchestrate model updates on-demand using the power of PySyft’s secure model parameter aggregation, leveraging mathematical techniques per actor to encrypt model information so trusted aggregators cannot glean on raw gradients sent by federated nodes.
 Of course, there needs to be full coordination with hospitals, clinics and radiologic facilities who have quality datasets to join in our planned IoT-enabled space specifically for this use case. In return, we enable an intuitive interface to help doctors in diagnosis. 
 * For improving encrypted deep learning in this project, we would try to improve and tweak class where we can customize precision.
 
