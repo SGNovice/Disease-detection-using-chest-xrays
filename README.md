@@ -216,14 +216,24 @@ Oudarjya Sen Sarma | @Oudarjya Sen Sarma
 Rosa Paccotacya | @Rosa Paccotacya
 
 ## References
+
 https://arxiv.org/pdf/1705.02315.pdf
+
 http://openaccess.thecvf.com/content_cvpr_2017/papers/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.pdf
+
 https://www.kaggle.com/ingusterbets/nih-chest-x-rays-analysis
+
 https://github.com/digantamisra98/Mila
+
 https://github.com/digantamisra98/Beta-Mish
+
 https://nihcc.app.box.com/v/ChestXray-NIHCC/folder/37178474737
+
 https://nihcc.app.box.com/v/ChestXray-NIHCC/file/219760887468
+
 https://link.springer.com/chapter/10.1007/978-3-540-75402-2_4
+
 https://openreview.net/pdf?id=rkBBChjiG
+
 https://arxiv.org/pdf/1711.05225
 
