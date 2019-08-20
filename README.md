@@ -1,6 +1,8 @@
 # Disease detection Project using Chest X-ray Database
 This project utilizes a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontal view X-ray images of 32,717 unique patients with the text mined 14 disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
 
+<img src="https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes2.png"/>
+
 ## Abstract
 Chest X-Rays are the most reliable radiobiological imprints of patients, widely used to efficiently diagnose an array of common thoracic diseases. For too long, vast accumulations of image data and their associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and medical institutions. In the meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases just like these, at the cusp of fulfilling the promise of fully-automated and accurate disease diagnosis. Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, with powerful Deep Learning Systems, to automate the diagnosis of 14 common kinds of lung diseases. For this project, and in addition to healthy x-rays, we selected three conditions to start with - Cardiomegaly, Effusion, Emphysema - after rounds of exploration. 
 
@@ -249,12 +251,16 @@ The team would like to extend the project to institutions where aid to diagnosis
 Currently, the project is limited to the public domain dataset and to the best-effort analyses of health records via natural language processing. The idea here is to improve the current accuracy of the model by augmenting it with real-world datasets which are available from medical institutions. Due to the sensitive nature of these datasets and concerns for privacy, these are currently being kept private. With the power of federated learning, we can adopt a strategy where medical institutions would not need to relent their private datasets to a central server, which might lead to privacy leakage. Instead, we open an interface for them to feed the data within the institution, train the model on-site and only transmit gradients and other model information to the central server which we have access and do model aggregation accordingly. Firstly, we will coordinate with medical institutions to install Internet-enabled devices on-premise. For this, we think of Raspberry Pi 3 devices, small, lightweight and powerful enough to perform the local training needed. We plan on creating a headless setup to each Raspberry Pi device, with the web server connected to their local network. This web server can be accessed by representatives in-house to feed X-ray data and other relevant information pertinent to local training. We make sure that the data to be fed locally matches the global requirements for model improvement. We can send the model definition to each Raspberry Pi’s installed remotely. We then orchestrate model updates on-demand using the power of PySyft’s secure model parameter aggregation, leveraging mathematical techniques per actor to encrypt model information so trusted aggregators cannot glean on raw gradients sent by federated nodes. We will need the full cooperation of hospitals, clinics and radiologic facilities who have quality datasets to join  our planned IoT-enabled ecosystem for this use case. In return, we will enable an intuitive interface to help doctors in diagnosis.
 
 ### Browser and mobile Access
-We already deployed the model to the web for demonstration, and our xray detection service is accessible at https://xrayeyes.onrender.com. We have also started work on the apps for android, iOS and the new ipadOS. Mocks of this is shown below:
-[Insert images for mocks]
+We already deployed the model to the web for demonstration, and our xray detection service is accessible at https://xrayeyes.onrender.com. We have also started work on the apps for android, iOS and the new ipadOS. Additionally, these mobile apps may be used in the home, and we have designed functionality that can link patients to nearby clinics or hospitals. Mocks of this is shown below:
+<img src="https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes.png"/>
 
 
 ## Appendix
-https://colab.research.google.com/drive/1nub56-UfvlovgWP7oSC5850HdNIbOFQu 
+- Data Exploration Notebook https://colab.research.google.com/drive/1nub56-UfvlovgWP7oSC5850HdNIbOFQu 
+- Model Encryptor https://github.com/ayivima/AI-SURFS/blob/master/ModelEncryptor/encryptor.py
+- Mobile Platform UI Mocks (a)https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes2.png
+(b)https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes.png
+
 
 ## Collaborators
 Members | Slack Handle
