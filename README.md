@@ -79,8 +79,7 @@ Given that our dataset covered medical conditions, the manifestations of which c
 * Resize: to a size of 224 by 224 to match our densenet model input size
 * Random Horizontal Flip
 * Random Vertical Flip
-* Conversion To Pytorch floatTensor type
-This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
+* Conversion To Pytorch floatTensor type: This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
 
 ### Modelling
 We had a run with densenet161, and resNext50 during our model staging to assess and compare performances, before finally settling with densenet161.
