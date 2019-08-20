@@ -28,7 +28,6 @@ There is no denying the fact that with an ever-growing global population, we are
 This project is borne out of the team's vision to make healthcare better for everyone, anywhere.
 
 ## Methodology
-Recent work has shown that convolutional networks can be substantially deeper, more accurate, and efficient to train if they contain shorter connections between layers close to the input and those close to the output. In this paper, we embrace this observation and introduce the Dense Convolutional Network (DenseNet), which connects each layer to every other layer in a feed-forward fashion. Whereas traditional convolutional networks with L layers have L connections - one between each layer and its subsequent layer - our network has L(L+1)/2 direct connections. For each layer, the feature-maps of all preceding layers are used as inputs, and its own feature-maps are used as inputs into all subsequent layers. 
 
 Given our time constraint, we chose to divide ourselves into sub-teams corresponding to the demarcated phases of this project. The benefit of this approach was a smooth iterative process - where we could have quick adjustments from previous phases to facilitate better outcomes for a subsequent phase - and speed due to parallel implementations at the various phases.
 We also adopted a scrum model, where the entire period was a sprint, and stand-up sessions within at most 2-day intervals served for a progress update and team re-orientation where it was necessitated.
@@ -93,23 +92,57 @@ Sample image from the transformed dataset is as below
 ![Transformed](images/transformed.png)
 
 ### Modeling
-We had a run with densenet161, and resNext50 during our model staging to assess and compare performances, before finally settling with densenet161.
 The modeling stage was characterized by several iterative cycles that called for new sampling and processing strategies on demand. Notwithstanding, the team model facilitated swift responses so that we could re-orient quickly without disrupting overall progress.
 We also had the technical expertise that allowed us to try novel activation functions - namely mila, mish and beta mish – which we believe contributed greatly to our results, in addition to hyperparameter tunings.
 
-For activation Functions, we are using β-Mish and Mila. 
-**β-Mish** is an uni-parametric activation inspired by the Mish activation function - when β=1, β-Mish becomes the standard version of Mish - and can be mathematically represented using the function:
+> Activation functions are an extremely important feature of the artificial neural networks. They basically decide whether a neuron should be activated or not. Whether the information that the neuron is receiving is relevant for the given information or should it be ignored.
+
+#### **β-Mish** 
+It is an uni-parametric activation inspired by the Mish activation function - when β=1, β-Mish becomes the standard version of Mish - and can be mathematically represented using the function:
 
 ![B-mish](https://user-images.githubusercontent.com/37798451/63227800-20f58900-c208-11e9-8a8b-3ee5f425e086.PNG)
 
 If β=1.5, the function ranges from  ≈-0.451103 to ∞. For most benchmarks, β was set to be 1.5.
 ![Mish3](https://user-images.githubusercontent.com/37798451/63227815-569a7200-c208-11e9-9412-b802fe7bf20f.png)
 
-**Mila** is an uniparametric activation function inspired by the Mish Activation Function. The parameter β is used to control the concavity of the Global Minima of the Activation Function where β=0 is the baseline Mish Activation Function. Varying β in the negative scale reduces the concavity and vice versa. β is introduced to tackle gradient death scenarios due to the sharp global minima of Mish Activation Function.
+#### **Mila** 
+It is an uniparametric activation function inspired by the Mish Activation Function. The parameter β is used to control the concavity of the Global Minima of the Activation Function where β=0 is the baseline Mish Activation Function. Varying β in the negative scale reduces the concavity and vice versa. β is introduced to tackle gradient death scenarios due to the sharp global minima of Mish Activation Function.
 
 The mathematical function of Mila is shown as below:
 ![Mila](https://user-images.githubusercontent.com/37798451/63227901-4df66b80-c209-11e9-8e8b-1ab785410177.PNG)
 
+#### **SQNL activation** 
+This activation function uses the square operator to introduce the required non-linearity as compared with the use of an exponential term in the popular TanSig. Smaller computational operation count characterizes the proposed activation function. The key to the effectiveness of this function is a faster convergence when used in Multilayer Perceptron Artificial Neural Network architectural problems. Besides, the derivative of the function is linear, resulting in a quicker gradient computation.
+
+#### **ReLU activation** 
+ReLu Stands for Rectified linear unit. It is the most widely used activation function. Chiefly implemented in hidden layers of Neural network.
+* Equation :- A(x) = max(0,x). It gives an output x if x is positive and 0 otherwise.
+* Value Range :- [0, inf]
+* Nature :- Non-linear, which means we can easily backpropagate the errors and have multiple layers of neurons being activated by the ReLU function.
+* Uses :- ReLu is less computationally expensive than tanh and sigmoid because it involves simpler mathematical operations. At a time only a few neurons are activated making the network sparse making it efficient and easy for computation.
+
+#### **Softmax activation**
+The softmax function is also a type of sigmoid function but is handy when we are trying to handle classification problems.
+* Nature :- non-linear
+* Uses :- Usually used when trying to handle multiple classes. The softmax function would squeeze the outputs for each class between 0 and 1 and would also divide by the sum of the outputs.
+* Ouput:- The softmax function is ideally used in the output layer of the classifier where we are actually trying to attain the probabilities to define the class of each input.
+
+> Deep Convolutional Neural Network (DCNN) architectures are used for weakly-supervised object localization, by considering large image capacity, various multi-label CNN losses and different pooling strategies. We are using these architectures to design models for training Chest X-ray Datasets in multiple combinations with above mentioned activation functions. 
+
+#### **densenet 161**
+A DenseNet is a stack of dense blocks followed by transition layers. Each block consists of a series of units. Each unit packs two convolutions, each preceded by Batch Normalization and ReLU activations. Besides, each unit outputs a fixed number of feature vectors. This parameter, described as the growth rate, controls how much new information the layers allow to pass through.
+
+On the other hand, transition layers are very simple components designed to perform downsampling of the features passing the network. Every transition layer consists of a Batch Normalization layer, followed by a 1x1 convolution, followed by a 2x2 average pooling.
+
+#### **resnet50**
+Deep residual network (deep ResNet) is a type of specialized neural network that helps to handle more sophisticated deep learning tasks and models. It has received quite a bit of attention at recent IT conventions, and is being considered for helping with the training of deep networks. ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database [1]. The network is 50 layers deep and can classify images into 1000 object categories, such as keyboard, mouse, pencil, and many animals. As a result, the network has learned rich feature representations for a wide range of images. The network has an image input size of 224-by-224. For more pretrained networks in MATLAB. 
+
+In deep learning networks, a residual learning framework helps to preserve good results through a network with many layers. One problem commonly cited by professionals is that with deep networks composed of many dozens of layers, accuracy can become saturated, and some degradation can occur. Some talk about a different problem called "vanishing gradient" in which the gradient fluctuations become too small to be immediately useful.
+
+The deep residual network deals with some of these problems by using residual blocks, which take advantage of residual mapping to preserve inputs. By utilizing deep residual learning frameworks, engineers can experiment with deeper networks that have specific training challenges.
+
+#### **resNext50**
+ResNeXt is a simple, highly modularized network architecture for image classification. Our network is constructed by repeating a building block that aggregates a set of transformations with the same topology. Our simple design results in a homogeneous, multi-branch architecture that has only a few hyper-parameters to set. This strategy exposes a new dimension, which we call “cardinality” (the size of the set of transformations), as an essential factor in addition to the dimensions of depth and width.
 ### Encryption of model and dataset
 Healthcare data is particularly sensitive and if we face the risk of exposing sensitive patient data. For ensuring security and privacy of the dataset, we have implemented encrypted learning. To ensure encryption of model is done on demand and portability of classes we have implemented this in the below manner.
 * We encrypt patient data before it reaches our model. 
