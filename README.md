@@ -39,7 +39,7 @@ Finally, our team model allowed us to use initial cycles as an exploration to in
 
 The dataset was highly imbalanced, a high value in the distribution of 60361 and low of 110, and huge in size for our timeline and we had to resort it to using a well-represented sample. We eventually scaled down on the dataset to [12000] from [112000]. 
 
-Sample images from the original dataset is as below
+Sample images from the original dataset are as below
 ![Original](images/original.png)
 
 The initial distribution for images with single class labels is given below.
@@ -88,7 +88,7 @@ Given that our dataset covered medical conditions, the manifestations of which c
 * Random Vertical Flip
 * Conversion To Pytorch floatTensor type: This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
 
-Sample image from the transformed dataset is as below
+Sample images from the transformed dataset are as below
 ![Transformed](images/transformed.png)
 
 ### Modeling
