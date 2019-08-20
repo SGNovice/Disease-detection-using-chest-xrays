@@ -1,4 +1,7 @@
 # Disease detection Project using Chest X-ray Database
+
+**Project Repository Link --> https://github.com/SGNovice/Disease-detection-using-chest-xrays/**
+
 This project utilizes a new chest X-ray database, namely “ChestX-ray8”, which comprises 108,948 frontal view X-ray images of 32,717 unique patients with the text mined 14 disease image labels (where each image can have multi-labels), from the associated radiological reports using natural language processing.
 
 <img src="https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes2.png"/>
@@ -45,7 +48,7 @@ Finally, our team model allowed us to use initial cycles as an exploration to in
 The dataset was highly imbalanced, a high value in the distribution of 60361 and low of 110, and huge in size for our timeline and we had to resort it to using a well-represented sample. We initially scaled down from 112000+ images to 11000+, and then eventually 8186. 
 
 Sample images from the original dataset are as below:
-![Original](images/original.png)
+![Original](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/original.png)
 
 The initial distribution for images with single class labels is given below.
 
@@ -94,7 +97,7 @@ Given that our dataset covered medical conditions, the manifestations of which c
 * Conversion To Pytorch floatTensor type: This minimalistic approach was our shot at preserving as much information that would be clinically relevant for diagnosing our target conditions.
 
 Sample images from the transformed dataset are as below:
-![Transformed](images/transformed.png)
+![Transformed](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/transformed.png)
 
 ### Modeling
 The modeling stage was characterized by several iterative cycles that called for new sampling and processing strategies on demand. Notwithstanding, the team model facilitated swift responses so that we could re-orient quickly without disrupting overall progress.
@@ -139,7 +142,7 @@ A DenseNet is a stack of dense blocks followed by transition layers. Each block 
 
 On the other hand, transition layers are very simple components designed to perform downsampling of the features passing the network. Every transition layer consists of a Batch Normalization layer, followed by a 1x1 convolution, followed by a 2x2 average pooling.
 
-![densenet-161](images/densenet-161.png)
+![densenet-161](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/densenet-161.png)
 
 #### **resnet50**
 Deep residual network (deep ResNet) is a type of specialized neural network that helps to handle more sophisticated deep learning tasks and models. It has received quite a bit of attention at recent IT conventions, and is being considered for helping with the training of deep networks. ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database [1]. The network is 50 layers deep and can classify images into 1000 object categories, such as keyboard, mouse, pencil, and many animals. As a result, the network has learned rich feature representations for a wide range of images. The network has an image input size of 224-by-224. For more pretrained networks in MATLAB. 
@@ -148,12 +151,12 @@ In deep learning networks, a residual learning framework helps to preserve good 
 
 The deep residual network deals with some of these problems by using residual blocks, which take advantage of residual mapping to preserve inputs. By utilizing deep residual learning frameworks, engineers can experiment with deeper networks that have specific training challenges.
 
-![resnet](images/dl.png)
+![resnet](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/dl.png)
 
 #### **resNext50**
 ResNeXt is a simple, highly modularized network architecture for image classification. Our network is constructed by repeating a building block that aggregates a set of transformations with the same topology. Our simple design results in a homogeneous, multi-branch architecture that has only a few hyper-parameters to set. This strategy exposes a new dimension, which we call “cardinality” (the size of the set of transformations), as an essential factor in addition to the dimensions of depth and width.
 
-![resnext](images/resnext-50.png)
+![resnext](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/resnext-50.png)
 
 ### Encryption of model and dataset
 Healthcare data is particularly sensitive and if we face the risk of exposing sensitive patient data. For ensuring security and privacy of the dataset, we implemented a class which would allow encryption of model and data on-demand using websockets and the PySyft library. 
@@ -173,7 +176,7 @@ No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
 
 Here are the graphs representing  loss and accuracy for  test and training dataset. 
-![Loss](images/res2.png)   ![Accuracy](images/res3.png)
+![Loss](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/res2.png)   ![Accuracy](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/res3.png)
 
 ### *AVA:* beta-mish and densenet 161 --> 79.3%
 We trained and tested densenet161 with beta-mish and mila activations, on the dataset version 4.1 containing images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
@@ -260,7 +263,7 @@ We already deployed the model to the web for demonstration, and our xray detecti
 - Model Encryptor https://github.com/ayivima/AI-SURFS/blob/master/ModelEncryptor/encryptor.py
 - Mobile Platform UI Mocks (a)https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes2.png
 (b)https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/xrayeyes.png
-
+- XrayEyes Web App Demo https://xrayeyes.onrender.com
 
 ## Collaborators
 Members | Slack Handle
