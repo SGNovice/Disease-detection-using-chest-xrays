@@ -134,6 +134,8 @@ A DenseNet is a stack of dense blocks followed by transition layers. Each block 
 
 On the other hand, transition layers are very simple components designed to perform downsampling of the features passing the network. Every transition layer consists of a Batch Normalization layer, followed by a 1x1 convolution, followed by a 2x2 average pooling.
 
+![densenet-161](images/densenet-161.png)
+
 #### **resnet50**
 Deep residual network (deep ResNet) is a type of specialized neural network that helps to handle more sophisticated deep learning tasks and models. It has received quite a bit of attention at recent IT conventions, and is being considered for helping with the training of deep networks. ResNet-50 is a convolutional neural network that is trained on more than a million images from the ImageNet database [1]. The network is 50 layers deep and can classify images into 1000 object categories, such as keyboard, mouse, pencil, and many animals. As a result, the network has learned rich feature representations for a wide range of images. The network has an image input size of 224-by-224. For more pretrained networks in MATLAB. 
 
@@ -141,8 +143,13 @@ In deep learning networks, a residual learning framework helps to preserve good 
 
 The deep residual network deals with some of these problems by using residual blocks, which take advantage of residual mapping to preserve inputs. By utilizing deep residual learning frameworks, engineers can experiment with deeper networks that have specific training challenges.
 
+![resnet](images/dl.png)
+
 #### **resNext50**
 ResNeXt is a simple, highly modularized network architecture for image classification. Our network is constructed by repeating a building block that aggregates a set of transformations with the same topology. Our simple design results in a homogeneous, multi-branch architecture that has only a few hyper-parameters to set. This strategy exposes a new dimension, which we call “cardinality” (the size of the set of transformations), as an essential factor in addition to the dimensions of depth and width.
+
+![resnext](images/resnext-50.png)
+
 ### Encryption of model and dataset
 Healthcare data is particularly sensitive and if we face the risk of exposing sensitive patient data. For ensuring security and privacy of the dataset, we have implemented encrypted learning. To ensure encryption of model is done on demand and portability of classes we have implemented this in the below manner.
 * We encrypt patient data before it reaches our model. 
