@@ -127,6 +127,9 @@ Effusion | 83.000% (83/100)
 No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
 
+Here are the graphs representing  loss and accuracy for  test and training dataset. 
+![Loss](images/res2.png)   ![Accuracy](images/res3.png)
+
 ### *Model 2:* AVA: beta-mish and densenet 161 --> 79.3%
 We trained and tested densenet161 with beta-mish and mila activations, on dataset of X-ray images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
 
