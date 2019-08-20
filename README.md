@@ -159,8 +159,7 @@ All of those shall be explored and clarified in-depth for our readers in this se
 * **Chest X-Ray dataset is extremely imbalanced when it comes to the distribution of the number of instances for each class**: _For example,_ there is a huge disparity between the number of the top class – No Finding with more than 60,000 instances and the bottom one – Hernia with mere 110 instances. 
         This created a difficult situation for us where we had to make a decision on how we should further process and transform our data before feeding to the model.
   
-* **X-ray images in our dataset were taken from two different positions: PA/posterior anterior and AP/anterior posterior**:  
-This especially held true for “Effusion” class, with the number of images captured in each position almost equal. Since many of the diseases in our dataset were sensitive to such positions, we debated on whether we should split each class into two smaller ones: AP and PA or more ideally, only retain PA pictures. <br>
+* **X-ray images in our dataset were taken from two different positions: PA/posterior anterior and AP/anterior posterior**: This especially held true for “Effusion” class, with the number of images captured in each position almost equal. Since many of the diseases in our dataset were sensitive to such positions, we debated on whether we should split each class into two smaller ones: AP and PA or more ideally, only retain PA pictures. <br>
 The latter approach, nevertheless, had one major disadvantage: we need to take into account the number of pictures in the PA position, which in many cases there were simply not enough of them. In the end, considering the limited number of PA images we had for “cardiomegaly”, we decided to include both PA and AP pictures in each class, and this would definitely have a negative impact on the accuracy of our model.
 
 * **How we should proceed with data augmentation**: 
