@@ -156,21 +156,21 @@ _**So based on the above results, the most accurate model is *AURORA* which use 
 We ran into significant difficulties in our attempt to find a working approach towards processing the Chest X-Ray dataset and training a successful deep learning model. While many factors can be taken into account for this complication, the root cause can be traced back to the original dataset itself, which contains many imperfections and deficiencies that posed numerous challenges for the Data Acquisition, Pre-processing and Modelling teams alike. 
 
 All of those shall be explored and clarified in-depth for our readers in this section, and the limitations we came across will be covered in the next section.
-* **Chest X-Ray dataset is extremely imbalanced when it comes to the distribution of the number of instances for each class** 
+* **Chest X-Ray dataset is extremely imbalanced when it comes to the distribution of the number of instances for each class**:  
 _For example,_ there is a huge disparity between the number of the top class – No Finding with more than 60,000 instances and the bottom one – Hernia with mere 110 instances. 
         This created a difficult situation for us where we had to make a decision on how we should further process and transform our data before feeding to the model.
   
-* **X-ray images in our dataset were taken from two different positions: PA/posterior anterior and AP/anterior posterior** 
+* **X-ray images in our dataset were taken from two different positions: PA/posterior anterior and AP/anterior posterior**:  
 This especially held true for “Effusion” class, with the number of images captured in each position almost equal. Since many of the diseases in our dataset were sensitive to such positions, we debated on whether we should split each class into two smaller ones: AP and PA or more ideally, only retain PA pictures. <br>
 The latter approach, nevertheless, had one major disadvantage: we need to take into account the number of pictures in the PA position, which in many cases there were simply not enough of them. In the end, considering the limited number of PA images we had for “cardiomegaly”, we decided to include both PA and AP pictures in each class, and this would definitely have a negative impact on the accuracy of our model.
 
-* **How we should proceed with data augmentation** 
+* **How we should proceed with data augmentation**: 
 Given the nature of X-ray images for lung diseases, even a small rotation or central cropping could end up leaving out important diagnosis information and lead to the difficulty of generalization. Having researched extensively to gain a deep understanding of the images, the size of our dataset, and the reported performance of past models, after lengthy discussions and countless trial and error attempts, we finally came to an agreement: reduce the number of classes in the wrangled and modified dataset to only 3: CardioMegaly, Effusion, and No finding, with the number of sampled instances for each class, became much more balanced and therefore prevented biases from occurring when being trained by the model.
 
-* **X-ray images in the dataset were missing some crucial information typically used for diagnosing diseases**
+* **X-ray images in the dataset were missing some crucial information typically used for diagnosing diseases**:
 After consulting with the subject matter expert Olivia in our team, we found that in particular, for conditions that tend to look similar in X-ray images such as “Mass”, “Infiltration” and “Pneumonia”, in real life doctors would rely on other factors such as white count and temperature to make a formal diagnosis. Unfortunately, that information was not available in our dataset, which in turn can be problematic for whatever deep learning model being trained and deployed to classify conditions. In fact, in the original paper, all the fore-mentioned diseases performed poorly and recorded a high prediction error rate from the model, which helped to reinforce our earlier finding.
 
-* **Disease labels for the X-ray chest dataset were not done manually, but rather through a number of different NLP techniques when constructing the image database**
+* **Disease labels for the X-ray chest dataset were not done manually, but rather through a number of different NLP techniques when constructing the image database**:
 Although the authors have gone the extra mile to mitigate the risk of wrong labeling by crafting a variety of custom rules and then applying them in the pre-processing step, the problem of defective labels was not entirely eliminated. Specifically, we can refer to “Table 2. Evaluation of image labeling results on OpenI dataset.” on page 4 of the paper for a detailed assessment on this phenomenon. The vast majority of classes exhibit varying degrees of being mislabeled, from Effusion with 0.93 precision rate to Infiltration with a modest score of 0.74. As a consequence, this has considerably limited our model’s ability to train on the dataset and later classify disease labels with great accuracy, given that the data was not without flaw right from the beginning.
 
 ## Limitations
