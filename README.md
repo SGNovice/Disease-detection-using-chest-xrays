@@ -139,6 +139,9 @@ Effusion | 83.000% (83/100)
 No Finding | 75.000% (75/100)
 Overall | 82.3333% (247/300)
 
+Below graphs states the relation of test and training dataset for Loss and Accuracy
+![Loss](images/res2.png)  ![Accuracy](images/res3.png)
+
 ### *Approach 2:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
 In this approach, we have used resNext50 instead of densenet161 to test if it helps us to acheive better accuracy than other models. It also has hidden layers for ReLU and softmax algorithms. 
 
