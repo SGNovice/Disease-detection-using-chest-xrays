@@ -195,7 +195,6 @@ The team would like to extend the project to institutions where aid to diagnosis
 Of course, there needs to be full coordination with hospitals, clinics and radiologic facilities who have quality datasets to join in our planned IoT-enabled space specifically for this use case. In return, we enable an intuitive interface to help doctors in diagnosis. 
 * For improving encrypted deep learning in this project, we would try to improve and tweak class where we can customize precision.
 
-Due to the sensitive nature of these datasets and with intentions of privacy, naturally, these are currently being kept private. 
 ## Appendix
 https://colab.research.google.com/drive/1nub56-UfvlovgWP7oSC5850HdNIbOFQu 
 
