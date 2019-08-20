@@ -121,9 +121,10 @@ Below are the configurations to achieve the above two cases
 * Methods: encrypt_data(encrypts image data to be classified), predict(classifies the image)
 
 ## Results
+With varied approaches for data sampling, activation function selection and hyperparameter tuning, we trained and tested six models, codenamed Aurora, Ava, Auden, Venus, Armadillo, and Atlas. Our results are given below in descending order of model performance.
 
-### *Model 1:* AURORA: beta-mish, mila and densenet 161 --> 82.3%
-We trained and tested densenet161 with beta-mish and mila activations, on classifying Cardiomegaly, Effusion, and No Finding, irrespective of X-ray position.
+### *AURORA:* beta-mish, mila and densenet 161 --> 82.3%
+We trained and tested densenet161 with beta-mish and mila activations, on classifying Cardiomegaly, Effusion, and No Finding, irrespective of X-ray position using dataset version 4.2.
 
 Label | Accuracy
 ------------ | -------------
@@ -135,8 +136,8 @@ Overall | 82.3333% (247/300)
 Here are the graphs representing  loss and accuracy for  test and training dataset. 
 ![Loss](images/res2.png)   ![Accuracy](images/res3.png)
 
-### *Model 2:* AVA: beta-mish and densenet 161 --> 79.3%
-We trained and tested densenet161 with beta-mish and mila activations, on the dataset of X-ray images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
+### *AVA:* beta-mish and densenet 161 --> 79.3%
+We trained and tested densenet161 with beta-mish and mila activations, on the dataset version 4.1 containing images for Cardiomegaly(mixed AP/PA), Effusion(PA), and No-Finding(PA)
 
 Label | Accuracy
 ------------ | -------------
@@ -145,7 +146,7 @@ Effusion | 79.000% (79/100)
 No Finding | 76.000% (76/100)
 Overall | 79.3333% (238/300)
 
-### *Model 3:* AUDEN: densenet161, sqnl activation --> accuracy 75.59%
+### *AUDEN:* densenet161, sqnl activation --> accuracy 75.59%
 We trained and tested densenet161 with sqnl activation, on classifying Emphesyma and No-Finding, irrespective of X-ray position.
 
 Label | Accuracy
@@ -153,7 +154,7 @@ Label | Accuracy
 Emphysema | 70% (70/100)
 No Finding | 80% (76/100)
 
-### *Model 4:* VENUS: resnet50, mila activation --> accuracy 68.54%%
+### *VENUS:* resnet50, mila activation --> accuracy 68.54%%
 We trained and tested resnet50 with mila activation, on classifying Pneumothorax and No-Finding, irrespective of X-ray position.
 
 Label | Accuracy
@@ -161,7 +162,7 @@ Label | Accuracy
 Pneumothorax | 45% (45/100)
 No Finding | 92% (92/100)
 
-### *Model 5:* ARMADILLO:  densenet161, mila activation --> accuracy 61.932%
+### *ARMADILLO:*  densenet161, mila activation --> accuracy 61.932%
 We trained and tested densenet161 with mila activation on classifying Cardiomegaly, Effusion, and No-Finding, irrespective of X-ray position.
 
 Label | Accuracy
@@ -170,7 +171,7 @@ Cardiomegaly | 25%
 Effusion | 80%
 No Finding | 66%
 
-### *Model 6:* ATLAS: resNext50, traditional ReLU + Softmax combination --> accuracy 47%
+### *ATLAS:* resNext50, traditional ReLU + Softmax combination --> accuracy 47%
 We trained and tested resNext50 with traditional ReLU and Softmax activations on classifying Cardiomegaly, Effusion, and No-Finding, irrespective of X-ray position.
 
 Evidently, our most accurate model was *AURORA*, achieving an accuracy of 82.3%, on PA images for Effusion and Healthy X-rays(No-finding), and AP+PA images for cardiomegaly.
