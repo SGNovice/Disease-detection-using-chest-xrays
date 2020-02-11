@@ -2,7 +2,7 @@
 
 **Project Repository Link --> https://github.com/SGNovice/Disease-detection-using-chest-xrays/**
 
-This project utilizes a new chest X-ray database, namely “ChestX-ray8”, to build a lung disease detection system. The ChestX-ray8
+The project utilizes a new chest X-ray database, namely “ChestX-ray8”, to build a lung disease detection system. The ChestX-ray8
 comprises 108,948 frontal view X-ray images of 
 32,717 unique patients, and 14 disease labels which had been text-mined from associated radiological reports using 
 natural language processing.
@@ -11,24 +11,24 @@ natural language processing.
 
 ## Abstract
 Chest X-Rays are considerably reliable radiobiological imprints of patients, which are widely used to diagnose an array 
-of common diseases affecting organs within the chest. For too long, vast accumulations of image data and their 
+of common diseases affecting organs within the chest. Over a period, vast accumulations of image data and their 
 associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and 
 medical institutions. 
 Meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases like these, 
 at the cusp of fulfilling the promise of automated and accurate disease diagnosis. 
 Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, 
-with powerful Deep Learning Systems, and automate the diagnosis of 14 common lung conditions. 
-For this project phase, we focus on detecting three conditions - 
+with powerful Deep Learning System, and automate the diagnosis of 14 common lung conditions. 
+For this project phase, we focus on detecting three particluar conditions - 
 Cardiomegaly, Effusion, Emphysema - in addition to healthy states. 
 
 ## Introduction 
 Deep learning, also known as hierarchical learning or deep structured learning, 
 is a type of machine learning that uses a layered algorithmic architecture to analyze data. 
-Unlike other types of machine learning, deep learning has the added benefit of being able to make decisions with 
-significantly less involvement of human trainers. While basic machine learning requires a programmer to identify whether a conclusion 
+Unlike other types of machine learning, deep learning has an added advantage of being able to make decisions with 
+significantly less human intervention. While basic machine learning requires a programmer to identify whether a conclusion 
 is correct or not, deep learning can gauge the accuracy of its answers on its own due to the nature of its multi-layered structure. 
 The emergence of modern frameworks like PyTorch, has also made preprocessing of data more convenient. 
-Many of the filtering and normalization tasks that would have been completed manually by human programmers when 
+Many of the filtering and normalization tasks that would involve a lot of  human programmers when 
 using other machine learning techniques, are taken up automatically.
 
 The essential characteristics of deep learning make it an ideal tool for giving the much needed impetus, 
@@ -37,7 +37,7 @@ limitations of conventional diagnosis done by medical practitioners, and take th
 automated disease diagnosis to the realm of reality.
 
 Given the team's vision to make healthcare better for everyone, everywhere, and having paid attention to the trends and 
-recent breakthroughs with deep learning, we decided to experiment with several variations of convolutional networks for this project. 
+recent breakthroughs with deep learning, we decided to experiment with several variations of convolutional neural networks for this project. 
 Recent work has shown that convolutional networks can be substantially deeper, more accurate, 
 and efficient to train if they contain shorter connections between layers close to the input and output. 
 We embraced this observation, and leveraged the power of the Dense Convolutional Network (DenseNet), 
@@ -54,7 +54,7 @@ insights from large images more efficiently.
 Currently, some CNNs have approached, and even surpassed, the accuracy of human diagnosticians in identifying important 
 features, according to a number of diagnostic imaging studies. In June of 2018, a study in the Annals of Oncology 
 showed that a convolutional neural network trained to analyze dermatology images identified melanoma with ten percent 
-more specificity than human clinicians.Additionally, researchers at the Mount Sinai Icahn School of Medicine have 
+more specificity than medical practitioners.Additionally, researchers at the Mount Sinai Icahn School of Medicine have 
 developed a deep neural network capable of diagnosing crucial neurological conditions, such as stroke and brain hemorrhage, 
 150 times faster than human radiologists. The tool took just 1.2 seconds to process the image, analyze its contents, 
 and alert providers of a problematic clinical finding.
@@ -64,12 +64,12 @@ Evidently, there is great potential for the future of healthcare with smart tool
 ### Potential Benefits Of Deep Learning in Healthcare?
 Among the several benefits artificial intelligence promises to bring to healthcare, these are worth highlighting.
   * **More affordable treatment:** Diagnosis is faster and more accurate with automation; doctors will be able 
-  to recommend the right treatments to patients or intervene appropriately before illnesses aggravate to 
+  to recommend the right treatments to patients or intervene appropriately before illnesses aggravates which
   require more expensive treatment options.
   * **Safer solutions:** More accurate diagnosis means there will be a lower risk of complications associated with 
   patients receiving ineffective or incorrect treatment.
   * **More patients treated:** A reduction in the time it takes to complete a diagnostic analyses means 
-  laboratories can perform more tests. This will lead to coverage for more patients in much lesser time. 
+  laboratories can perform more tests. This will lead to coverage for more patients in shorter duration. 
   * **Addressing the global ‘Physician Shortage’:** The growing deficit between the demand for physicians and the supply, has 
   been a growing concern for many countries around the world. The World Health Organization (WHO) estimates that there is 
   a global shortage of 4.3 million physicians, nurses, and other health professionals. 
@@ -202,7 +202,7 @@ used in Multilayer Perceptron Artificial Neural Network architectural problems. 
 the function is linear, resulting in a quicker gradient computation.
 
 #### **ReLU activation** 
-ReLu Stands for Rectified linear unit. It is the most widely used activation function, and is chiefly implemented in 
+ReLu Stands for Rectified Linear unit. It is the most widely used activation function, and is chiefly implemented in 
 hidden layers of Neural network.
 * Equation :- A(x) = max(0,x). It gives an output x if x is positive and 0 otherwise.
 * Value Range :- [0, inf]
@@ -221,9 +221,9 @@ attain the probabilities to define the class of each input.
 
 > Deep Convolutional Neural Network (DCNN) architectures are favoured for weakly-supervised object localization for 
 the advantages of large image capacity, various multi-label losses, and pooling strategies. In lieu of this, we experimented 
-with the architectures outlined below, in a bid to explore and appreciate their suitability for this project..
+with the architectures outlined below, in a bid to explore and appreciate their suitability for this project.
 
-#### **densenet 161**
+#### **Densenet 161**
 A DenseNet is a stack of dense blocks followed by transition layers. 
 
 Dense blocks consist of a series of units. 
@@ -240,7 +240,7 @@ followed by a 1x1 convolution, and then a 2x2 average pooling.
 #### **resnet50**
 A deep residual network (deep ResNet) is a type of specialized neural network that helps to handle more sophisticated 
 deep learning tasks, by facilitating better outcomes with deeper architectures. It has received growing attention at recent 
-IT conferences, for its effectiveness for training deep networks. ResNet-50 is a 50-layer deep convolutional neural network 
+times, for its effectiveness for training deep networks. ResNet-50 is a 50-layer deep convolutional neural network 
 that is pre-trained 
 on more than one million images from the ImageNet database [1]. As a result, it has learned rich feature 
 representations for a wide range of images, and can classify images into 1000 object categories.  
@@ -248,7 +248,7 @@ representations for a wide range of images, and can classify images into 1000 ob
 One problem with deep networks composed of dozens of layers, as commonly cited by professionals, is that accuracy can become 
 saturated, and some degradation can occur. Others are also concerned about the "vanishing gradient" problem, which is characterised by 
 gradient fluctuations becoming too small to be immediately useful. The other obvious reason is overfitting, where models learn intricate 
-details from training data that prevent it from generalizing enough on unseen data. 
+details from training data that prevents it from generalizing enough on unseen data. 
 
 The deep residual network deals with some of these problems by using residual blocks, 
 which take advantage of residual mapping to preserve inputs. By utilizing deep residual learning frameworks, 
@@ -371,7 +371,7 @@ in X-ray images such as “Mass”, “Infiltration” and “Pneumonia”, in r
 such as white count and temperature to make a formal diagnosis. Unfortunately, that information was not available in our 
 dataset. In fact, in the original paper, all the aforementioned diseases performed poorly and recorded a high prediction 
 error rate from the model, which helped to reinforce our earlier finding. We would resort to focusing of xray samples of 
-distinct conditions
+distinct conditions.
 
 * **Disease labels for the X-ray chest dataset were not done manually, but rather through a number of different NLP 
 techniques when constructing the image database**: 
