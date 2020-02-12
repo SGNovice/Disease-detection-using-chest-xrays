@@ -246,8 +246,8 @@ representations for a wide range of images, and can classify images into 1000 ob
 
 One problem with deep networks composed of dozens of layers, as commonly cited by professionals, is that accuracy can become 
 saturated, and some degradation can occur. Others are also concerned about the "vanishing gradient" problem, which is characterised by 
-gradient fluctuations becoming too small to be immediately useful. The other obvious reason is overfitting, where models learn intricate 
-details from training data that prevents them from generalizing enough on unseen data. 
+gradients becoming too small to be immediately useful. The other obvious reason is overfitting, where models learn intricate 
+details from training data that prevent them from generalizing enough on unseen data. 
 
 The deep residual network deals with some of these problems by using residual blocks, 
 which take advantage of residual mapping to preserve inputs. By utilizing deep residual learning frameworks, 
