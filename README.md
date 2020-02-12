@@ -17,7 +17,7 @@ medical institutions.
 Meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases like these, 
 at the cusp of fulfilling the promise of automated and accurate disease diagnosis. 
 Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, 
-with powerful Deep Learning System, and automate the diagnosis of 14 common lung conditions. 
+with a powerful Deep Learning System, and automate the diagnosis of 14 common lung conditions. 
 For this project phase, we focus on detecting three particluar conditions - 
 Cardiomegaly, Effusion, Emphysema - in addition to healthy states. 
 
@@ -28,7 +28,7 @@ Unlike other types of machine learning, deep learning has an added advantage of 
 significantly less human intervention. While basic machine learning requires a programmer to identify whether a conclusion 
 is correct or not, deep learning can gauge the accuracy of its answers on its own due to the nature of its multi-layered structure. 
 The emergence of modern frameworks like PyTorch, has also made preprocessing of data more convenient. 
-Many of the filtering and normalization tasks that would involve a lot of  human programmers when 
+Many of the filtering and normalization tasks that would involve a lot of manual tasks while
 using other machine learning techniques, are taken up automatically.
 
 The essential characteristics of deep learning make it an ideal tool for giving the much needed impetus, 
@@ -64,8 +64,7 @@ Evidently, there is great potential for the future of healthcare with smart tool
 ### Potential Benefits Of Deep Learning in Healthcare?
 Among the several benefits artificial intelligence promises to bring to healthcare, these are worth highlighting.
   * **More affordable treatment:** Diagnosis is faster and more accurate with automation; doctors will be able 
-  to recommend the right treatments to patients or intervene appropriately before illnesses aggravates which
-  require more expensive treatment options.
+  to recommend the right treatments to patients or intervene appropriately before illnesses aggravate leading to more expensive treatment options.
   * **Safer solutions:** More accurate diagnosis means there will be a lower risk of complications associated with 
   patients receiving ineffective or incorrect treatment.
   * **More patients treated:** A reduction in the time it takes to complete a diagnostic analyses means 
@@ -239,7 +238,7 @@ followed by a 1x1 convolution, and then a 2x2 average pooling.
 
 #### **resnet50**
 A deep residual network (deep ResNet) is a type of specialized neural network that helps to handle more sophisticated 
-deep learning tasks, by facilitating better outcomes with deeper architectures. It has received growing attention at recent 
+deep learning tasks, by facilitating better outcomes with deeper architectures. It has received growing attention in recent 
 times, for its effectiveness for training deep networks. ResNet-50 is a 50-layer deep convolutional neural network 
 that is pre-trained 
 on more than one million images from the ImageNet database [1]. As a result, it has learned rich feature 
@@ -248,7 +247,7 @@ representations for a wide range of images, and can classify images into 1000 ob
 One problem with deep networks composed of dozens of layers, as commonly cited by professionals, is that accuracy can become 
 saturated, and some degradation can occur. Others are also concerned about the "vanishing gradient" problem, which is characterised by 
 gradient fluctuations becoming too small to be immediately useful. The other obvious reason is overfitting, where models learn intricate 
-details from training data that prevents it from generalizing enough on unseen data. 
+details from training data that prevents them from generalizing enough on unseen data. 
 
 The deep residual network deals with some of these problems by using residual blocks, 
 which take advantage of residual mapping to preserve inputs. By utilizing deep residual learning frameworks, 
@@ -266,7 +265,7 @@ of depth and width.
 ![resnext](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/resnext-50.png)
 
 ### Encryption of model and dataset
-Healthcare data is particularly sensitive and we face the risk of exposing sensitive patient data through projects like ours. 
+Healthcare data is particluarly sensitive and we face the risk of exposing sensitive patient data through projects like ours. 
 For ensuring security and privacy of the dataset, we implemented a class which would allow encryption of model and 
 data on-demand using websockets and the PySyft library. 
 A link to the our implementation is provided in the appendix of this document.
