@@ -14,11 +14,11 @@ Chest X-Rays are considerably reliable radiobiological imprints of patients, whi
 of common diseases affecting organs within the chest. Over a period, vast accumulations of image data and their 
 associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and 
 medical institutions. 
-Meanwhile, data-hungry Deep Learning systems lie in wait of voluminous databases like these, 
+Meanwhile, data-hungry deep learning systems lie in wait of voluminous databases like these, 
 at the cusp of fulfilling the promise of automated and accurate disease diagnosis. 
 Through this project, we hope to unite one such vast database, the “ChestX-ray8" dataset, 
-with a powerful Deep Learning System, and automate the diagnosis of 14 common lung conditions. 
-For this project phase, we focus on detecting three particluar conditions - 
+with a powerful deep Learning system, and automate the diagnosis of 14 common lung conditions. 
+For this project phase, we focus on detecting three conditions - 
 Cardiomegaly, Effusion, Emphysema - in addition to healthy states. 
 
 ## Introduction 
@@ -68,7 +68,7 @@ Among the several benefits artificial intelligence promises to bring to healthca
   * **Safer solutions:** More accurate diagnosis means there will be a lower risk of complications associated with 
   patients receiving ineffective or incorrect treatment.
   * **More patients treated:** A reduction in the time it takes to complete a diagnostic analyses means 
-  laboratories can perform more tests. This will lead to coverage for more patients in shorter duration. 
+  laboratories can perform more tests. This will lead to coverage for more patients within shorter duration. 
   * **Addressing the global ‘Physician Shortage’:** The growing deficit between the demand for physicians and the supply, has 
   been a growing concern for many countries around the world. The World Health Organization (WHO) estimates that there is 
   a global shortage of 4.3 million physicians, nurses, and other health professionals. 
@@ -100,8 +100,8 @@ With each cycle, we redefined our goals while maintaining the general objective 
 
 ### Sampling
 
-The dataset was highly imbalanced; the highest and lowest class counts were 60361 and 110 respectively. It was also huge in size 
-for our timeline and we had to resort to using a well-represented sample. 
+The dataset was highly imbalanced; the highest and lowest class counts were 60,361 and 110 respectively. It was also huge 
+for our timeline, and we had to derive a better-balanced sample. 
 We initially scaled down from 112,000+ images to 11,000+, and then eventually 8,186. 
 
 We also focused on images with single conditions, discarding images which showed 
@@ -152,7 +152,7 @@ The distribution for Version 4.2 finally settled at:
 
 ### Preprocessing
 Our dataset covered medical conditions, the manifestations of which could be present at edges of X-ray images and we exercised 
-caution with our transformations. After several deliberations and clinical considerations, we resorted to avoiding 
+caution with our transformations. After several deliberations and clinical considerations, we would avoid 
 cropping and extreme random rotations and kept to these:
 * Random Rotation: within the angle range -10 to 10, with expansion enabled
 * Resize: to a size of 224 by 224 to match our densenet model input size
@@ -170,9 +170,9 @@ Notwithstanding, the team model facilitated swift responses so that we could re-
 We also had the technical expertise that allowed us to try novel activation functions - namely mila, mish and beta mish – 
 which we believe contributed greatly to our results.
 
-> Activation functions are an extremely important feature of artificial neural networks. They basically decide whether 
-a neuron should be activated or not. Whether the information that the neuron is receiving is relevant for the 
-given information or should it be ignored.
+> Activation functions are important features of artificial neural networks. They determine whether 
+a neuron should be activated or not; whether the information that a neuron is receiving is relevant for the 
+given information or should be ignored.
 
 #### **β-Mish** 
 It is an uni-parametric activation inspired by the Mish activation function - when β=1, β-Mish becomes the standard version of 
@@ -201,8 +201,8 @@ used in Multilayer Perceptron Artificial Neural Network architectural problems. 
 the function is linear, resulting in a quicker gradient computation.
 
 #### **ReLU activation** 
-ReLu Stands for Rectified Linear unit. It is the most widely used activation function, and is chiefly implemented in 
-hidden layers of Neural network.
+ReLu Stands for Rectified Linear Unit. It is the most widely used activation function, and is chiefly implemented in 
+hidden layers of neural networks.
 * Equation :- A(x) = max(0,x). It gives an output x if x is positive and 0 otherwise.
 * Value Range :- [0, inf]
 * Nature :- Non-linear, which means we can easily backpropagate the errors and have multiple layers of neurons being 
@@ -265,7 +265,7 @@ of depth and width.
 ![resnext](https://raw.githubusercontent.com/SGNovice/Disease-detection-using-chest-xrays/master/images/resnext-50.png)
 
 ### Encryption of model and dataset
-Healthcare data is particluarly sensitive and we face the risk of exposing sensitive patient data through projects like ours. 
+Healthcare data is particularly sensitive, and we face the risk of exposing sensitive patient data through projects like ours. 
 For ensuring security and privacy of the dataset, we implemented a class which would allow encryption of model and 
 data on-demand using websockets and the PySyft library. 
 A link to the our implementation is provided in the appendix of this document.
