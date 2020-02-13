@@ -11,7 +11,7 @@ natural language processing.
 
 ## Abstract
 Chest X-Rays are considerably reliable radiobiological imprints of patients, which are widely used to diagnose an array 
-of common diseases affecting organs within the chest. Over a period, vast accumulations of image data and their 
+of common diseases affecting organs within the chest. For too long, vast accumulations of image data and their 
 associated diagnoses have been stored in the Picture Archiving and Communication Systems (PACS) of several hospitals and 
 medical institutions. 
 Meanwhile, data-hungry deep learning systems lie in wait of voluminous databases like these, 
@@ -90,8 +90,8 @@ This project is borne out of the team's vision to make healthcare better for eve
 Given our time constraint, we chose to divide ourselves into sub-teams corresponding to the demarcated phases of this project. 
 The benefit of this approach was a smooth iterative process - where we could have quick adjustments from previous phases to 
 facilitate better outcomes for a subsequent phase - and speed due to parallel implementations at the various phases.
-We also adopted a scrum model, where the entire period was a sprint, and stand-up sessions within at most 2-day intervals served 
-for a progress update and team re-orientation where it was necessitated.
+We also adopted a scrum model, where the entire period was a sprint, and stand-up sessions within 2-day intervals served 
+for progress updates and team re-orientation where it was necessitated.
 Finally, our team model allowed us to use initial cycles as an exploration to inform our final data selection and preprocessing, and 
 model strategies. 
 With each cycle, we redefined our goals while maintaining the general objective of facilitating faster lung X-ray assessments. 
