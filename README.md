@@ -429,26 +429,26 @@ We already deployed the model to the web for demonstration, and our xray detecti
 - XrayEyes Web App Demo https://xrayeyes.onrender.com
 
 ## Collaborators
-Members | Slack Handle
+Members | GitHub Handle
 ------------ | -------------
-Victor Mawusi Ayi | @ayivima
-Anju Mercian | @Anju Mercian
-George Christopoulos | @George Christopoulos
-Ashish Bairwa  | @Stark
-Pooja Vinod | @Pooja Vinod
-Ingus Terbets | @Ingus Terbets
-Alexander Villasoto | @Alexander Villasoto
-Olivia Milgrom | @Olivia
-Tuan Hung Truong | @Hung
-Marwa Qabeel | @Marwa
-Shudipto Trafder | @Shudipto Trafder
-Aarthi Alagammai | @Aarthi Alagammai
-Agata | @Agata [OR, USA]
-Kapil Chandorikar | @Kapil Chandorikar
-Archit | @Archit
-Cibaca Khandelwal | @cibaca
-Oudarjya Sen Sarma | @Oudarjya Sen Sarma
-Rosa Paccotacya | @Rosa Paccotacya
+Victor Mawusi Ayi | https://github.com/ayivima
+Anju Mercian | https://github.com/amalphonse
+George Christopoulos | https://github.com/geochri
+Ashish Bairwa  | https://github.com/ashishbairwa
+Pooja Vinod | https://github.com/poojavinod100 
+Ingus Terbets | https://github.com/ingus-t
+Alexander Villasoto | https://github.com/anvillasoto
+Olivia Milgrom | https://github.com/OliviaMil
+Tuan Hung Truong | https://github.com/tuanhung94
+Marwa Qabeel | https://github.com/MarwaQabeel
+Shudipto Trafder | http://github.com/iamsdt
+Aarthi Alagammai | https://github.com/AarthiAlagammai
+Agata | https://github.com/agatagruza
+Kapil Chandorikar | https://github.com/kapilchandorikar/
+Archit | https://github.com/gargarchit
+Cibaca Khandelwal | https://github.com/cibaca
+Oudarjya Sen Sarma | https://github.com/oudarjya718
+Rosa Paccotacya | https://github.com/RosePY
 
 ## References
 
